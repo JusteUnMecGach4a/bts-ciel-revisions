@@ -6,6 +6,12 @@
     <title>Physique-Chimie - BTS CIEL</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        MathJax = {
+            tex: { inlineMath: [['$', '$'], ['\\(', '\\)']], displayMath: [['$$', '$$'], ['\\[', '\\]']] }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
     <div class="blob blob-blue"></div>
@@ -18,15 +24,131 @@
                 &larr; Accueil
             </a>
             <h1>Physique-Chimie Appliquée</h1>
-            <p>Ressources et cours pour le BTS CIEL</p>
+            <p>Numérisation d'une tension (Chaîne d'acquisition & CAN)</p>
             <div class="header-tags">
                 <span class="tag tag-accent">Électronique</span>
                 <span class="tag tag-level">Signaux</span>
             </div>
+            <a href="#chaines" class="scroll-down">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </a>
         </div>
     </header>
 
     <main class="container">
+        <nav class="toc">
+            <a href="#chaines" class="toc-item active">1. Chaînes d'acquisition</a>
+            <a href="#echantillonnage" class="toc-item">2. Échantillonnage</a>
+            <a href="#can" class="toc-item">3. CAN & Quantum</a>
+            <a href="#snr" class="toc-item">4. Rapport Signal/Bruit</a>
+            <a href="#documents" class="toc-item">Documents du cours</a>
+        </nav>
+
+        <!-- 1. CHAINES D'ACQUISITION -->
+        <section id="chaines" class="section">
+            <div class="section-title">
+                <h2>1. Chaînes d'acquisition et de restitution</h2>
+            </div>
+            <div class="grid">
+                <div class="card glass span-full">
+                    <p>La numérisation permet d'améliorer le traitement, le stockage et la transmission des signaux.</p>
+                    
+                    <h3 style="margin-top: 1.5rem; color: #84fab0;">Chaîne d'acquisition</h3>
+                    <p style="margin-top: 0.5rem; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; line-height: 2;">
+                        Signal analogique $x_a(t)$ &rarr; Échantillonneur-bloqueur &rarr; Signal échantillonné $x_{eb}(t)$ &rarr; <strong>CAN</strong> &rarr; Suite binaire $\{x_n\}$
+                    </p>
+
+                    <h3 style="margin-top: 1.5rem; color: #ff9a9e;">Chaîne de restitution</h3>
+                    <p style="margin-top: 0.5rem; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; line-height: 2;">
+                        Signal numérique $\{x_n\}$ &rarr; <strong>CNA</strong> &rarr; Tension en marches d'escalier $y_{eb}(t)$ &rarr; Filtre de lissage (passe-bas) &rarr; Signal analogique $y_a(t)$
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ECHANTILLONNAGE -->
+        <section id="echantillonnage" class="section">
+            <div class="section-title">
+                <h2>2. Échantillonnage et Spectre</h2>
+            </div>
+            <div class="grid">
+                <div class="card glass">
+                    <h3>Fréquence et Condition de Shannon</h3>
+                    <p>L'échantillonnage prélève des valeurs à la fréquence $f_e = \frac{1}{T_e}$.</p>
+                    <div class="formula-box" style="margin-top: 1rem; background: rgba(132, 250, 176, 0.1); border-left: 4px solid #84fab0; padding: 1rem;">
+                        <strong>Condition de Shannon :</strong><br>
+                        Pour éviter le repliement du spectre (aliasing) et pouvoir reconstruire le signal sans erreur, la fréquence d'échantillonnage doit être au moins deux fois supérieure à la fréquence maximale du signal :
+                        <div class="formula" style="font-size: 1.2em; text-align: center; margin-top: 1rem;">$$f_e > 2 \times f_{max}$$</div>
+                    </div>
+                </div>
+
+                <div class="card glass">
+                    <h3>Filtre anti-repliement</h3>
+                    <p>Il s'agit d'un filtre passe-bas placé <strong>avant</strong> l'échantillonneur. Sa fréquence de coupure $f_c$ doit respecter :</p>
+                    <div class="formula-box" style="margin-top: 1rem; text-align: center;">
+                        <div class="formula" style="font-size: 1.2em;">$$f_c < \frac{f_e}{2}$$</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. CAN ET QUANTUM -->
+        <section id="can" class="section">
+            <div class="section-title">
+                <h2>3. La Conversion Analogique-Numérique (CAN)</h2>
+            </div>
+            <div class="grid">
+                <div class="card glass span-full">
+                    <p>Le CAN convertit la tension en un nombre binaire $M$ codé sur $n$ bits.</p>
+                    <p style="margin-top: 0.5rem; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px;">
+                    <strong>Valeur décimale d'un mot binaire :</strong><br>
+                    $$M_{10} = b_{n-1} \cdot 2^{n-1} + b_{n-2} \cdot 2^{n-2} + \dots + b_0 \cdot 2^0$$</p>
+                </div>
+
+                <div class="card glass">
+                    <h3>Le Quantum ($q$)</h3>
+                    <p>Le quantum est la plus petite variation de tension que le convertisseur peut coder. Pour une tension pleine échelle $\Delta U$ et un codage sur $n$ bits :</p>
+                    <div class="formula-box" style="text-align: center; margin-top: 1rem;">
+                        <div class="formula" style="font-size: 1.2em;">$$q = \frac{\Delta U}{2^n - 1}$$</div>
+                    </div>
+                </div>
+
+                <div class="card glass">
+                    <h3>Condition de conversion</h3>
+                    <p>Pour que l'acquisition soit correcte, le temps de conversion $T_c$ du CAN doit être inférieur à la période d'échantillonnage :</p>
+                    <div class="formula-box" style="text-align: center; margin-top: 1rem;">
+                        <div class="formula" style="font-size: 1.2em;">$$T_c < T_e$$</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SNR -->
+        <section id="snr" class="section">
+            <div class="section-title">
+                <h2>4. Rapport Signal sur Bruit (SNR)</h2>
+            </div>
+            <div class="grid">
+                <div class="card glass span-full">
+                    <p>Le SNR mesure la qualité de la numérisation en comparant la puissance du signal utile à celle du bruit de quantification.</p>
+                    
+                    <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <h4 style="color: #ff9a9e; margin-bottom: 0.5rem;">Puissances (signal sinusoïdal)</h4>
+                            <p style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; text-align: center;">Signal : $$P_{signal} = \frac{E_{max}^2}{2R}$$</p>
+                            <p style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; text-align: center; margin-top: 0.5rem;">Bruit : $$P_{bruit} = \frac{q^2}{12R}$$</p>
+                        </div>
+                        <div style="flex: 1; min-width: 250px; background: rgba(143, 211, 244, 0.1); border-left: 4px solid #8fd3f4; padding: 1.5rem; border-radius: 8px;">
+                            <h4 style="margin-bottom: 0.5rem;">Formule du SNR (en dB)</h4>
+                            <p>Pour un signal sinusoïdal codé sur $N$ bits :</p>
+                            <div class="formula" style="text-align: center; font-size: 1.2em; margin-top: 1rem;">$$SNR_{dB} = 10 \cdot \log\left(\frac{P_{signal}}{P_{bruit}}\right) = 1,8 + 6N$$</div>
+                            <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9em;"><i>Exemple : Un CD audio codé sur 16 bits possède un $SNR_{dB} = 98 \text{ dB}$.</i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- DOCUMENTS -->
         <section id="documents" class="section">
             <div class="section-title">
@@ -57,5 +179,27 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Update active TOC item on scroll
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.toc-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
