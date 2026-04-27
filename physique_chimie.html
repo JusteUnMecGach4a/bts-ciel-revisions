@@ -62,6 +62,17 @@
                     <p style="margin-top: 0.5rem; background: rgba(255,255,255,0.05); padding: 1rem; border-radius: 8px; line-height: 2;">
                         Signal numérique $\{x_n\}$ &rarr; <strong>CNA</strong> &rarr; Tension en marches d'escalier $y_{eb}(t)$ &rarr; Filtre de lissage (passe-bas) &rarr; Signal analogique $y_a(t)$
                     </p>
+
+                    <div style="margin-top: 2rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; overflow: hidden;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.2);">🧠 Exercice Rapide</div>
+                        <div style="padding: 1rem;">
+                            <p>Quel composant de la chaîne de restitution permet de supprimer l'effet "marches d'escalier" du signal issu du CNA ?</p>
+                            <details style="margin-top: 1rem; cursor: pointer;">
+                                <summary style="color: #84fab0; font-weight: bold;">Voir la réponse</summary>
+                                <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 3px solid #84fab0;">C'est le <strong>filtre de lissage</strong> (qui est un filtre passe-bas). Il adoucit les variations brusques pour reconstituer un signal analogique fluide.</p>
+                            </details>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -87,6 +98,17 @@
                     <p>Il s'agit d'un filtre passe-bas placé <strong>avant</strong> l'échantillonneur. Sa fréquence de coupure $f_c$ doit respecter :</p>
                     <div class="formula-box" style="margin-top: 1rem; text-align: center;">
                         <div class="formula" style="font-size: 1.2em;">$$f_c < \frac{f_e}{2}$$</div>
+                    </div>
+                </div>
+
+                <div class="card glass span-full" style="border: 1px solid rgba(255,255,255,0.2); padding: 0; overflow: hidden;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.2);">🧠 Exercice Rapide</div>
+                    <div style="padding: 1rem;">
+                        <p>L'oreille humaine perçoit des sons jusqu'à une fréquence maximale d'environ $f_{max} = 20\text{ kHz}$. D'après le théorème de Shannon, quelle doit être la fréquence d'échantillonnage minimale $f_e$ pour numériser un morceau de musique sans perte d'information (sans aliasing) ?</p>
+                        <details style="margin-top: 1rem; cursor: pointer;">
+                            <summary style="color: #84fab0; font-weight: bold;">Voir la réponse</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 3px solid #84fab0;">D'après la condition de Shannon, il faut $f_e > 2 \times f_{max}$. Donc $f_e > 2 \times 20\text{ kHz} = 40\text{ kHz}$.<br><br><em>Note : C'est pour cette raison que la fréquence d'échantillonnage standard d'un CD audio a été fixée à 44,1 kHz !</em></p>
+                        </details>
                     </div>
                 </div>
             </div>
@@ -120,6 +142,17 @@
                         <div class="formula" style="font-size: 1.2em;">$$T_c < T_e$$</div>
                     </div>
                 </div>
+
+                <div class="card glass span-full" style="border: 1px solid rgba(255,255,255,0.2); padding: 0; overflow: hidden;">
+                    <div style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.2);">🧠 Exercice Rapide</div>
+                    <div style="padding: 1rem;">
+                        <p>Un capteur de température délivre une tension comprise entre $0\text{V}$ et $5\text{V}$ ($\Delta U = 5\text{V}$). Le système de traitement utilise un CAN codé sur $8\text{ bits}$. Calculez le quantum $q$ du convertisseur (la plus petite variation de tension détectable).</p>
+                        <details style="margin-top: 1rem; cursor: pointer;">
+                            <summary style="color: #84fab0; font-weight: bold;">Voir la réponse</summary>
+                            <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 3px solid #84fab0;">On applique la formule du quantum : $q = \frac{\Delta U}{2^n - 1}$<br><br>$q = \frac{5}{2^8 - 1} = \frac{5}{256 - 1} = \frac{5}{255} \approx 0,0196\text{ V}$<br><br>Le quantum est d'environ <strong>$19,6\text{ mV}$</strong>. Le système ne détectera une variation de température que si la tension change d'au moins 19,6 mV.</p>
+                        </details>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -143,6 +176,17 @@
                             <p>Pour un signal sinusoïdal codé sur $N$ bits :</p>
                             <div class="formula" style="text-align: center; font-size: 1.2em; margin-top: 1rem;">$$SNR_{dB} = 10 \cdot \log\left(\frac{P_{signal}}{P_{bruit}}\right) = 1,8 + 6N$$</div>
                             <p style="margin-top: 1rem; opacity: 0.8; font-size: 0.9em;"><i>Exemple : Un CD audio codé sur 16 bits possède un $SNR_{dB} = 98 \text{ dB}$.</i></p>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; overflow: hidden;">
+                        <div style="background: rgba(255,255,255,0.1); padding: 0.5rem 1rem; font-weight: bold; border-bottom: 1px solid rgba(255,255,255,0.2);">🧠 Exercice Rapide</div>
+                        <div style="padding: 1rem;">
+                            <p>Un nouvel oscilloscope numérique numérise les signaux sur $12\text{ bits}$. Quel est le rapport signal/bruit ($SNR_{dB}$) théorique maximal que l'on peut espérer si l'on mesure un signal parfaitement sinusoïdal ?</p>
+                            <details style="margin-top: 1rem; cursor: pointer;">
+                                <summary style="color: #84fab0; font-weight: bold;">Voir la réponse</summary>
+                                <p style="margin-top: 0.5rem; padding-left: 1rem; border-left: 3px solid #84fab0;">On applique la formule approchée pour un signal sinusoïdal : $SNR_{dB} = 1,8 + 6N$<br><br>Ici $N = 12$, donc : $SNR_{dB} = 1,8 + 6 \times 12 = 1,8 + 72 = \mathbf{73,8\text{ dB}}$.</p>
+                            </details>
                         </div>
                     </div>
                 </div>
