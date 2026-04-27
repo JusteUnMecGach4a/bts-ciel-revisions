@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Suites Numériques - Cours & Résumé</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+    <div class="blob blob-blue"></div>
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-cyan"></div>
+
+    <header class="hero">
+        <div class="glass-panel">
+            <a href="index.html" class="tag" style="position: absolute; top: 1rem; left: 1rem; text-decoration: none; color: white; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                &larr; Accueil
+            </a>
+            <h1>Les Suites Numériques</h1>
+            <p>Résumé du cours complet : Arithmétiques et Géométriques</p>
+            <div class="header-tags">
+                <span class="tag tag-math">Mathématiques</span>
+                <span class="tag tag-level">Lycée / Supérieur</span>
+            </div>
+            <a href="#arithmetiques" class="scroll-down">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+            </a>
+        </div>
+    </header>
+
+    <main class="container">
+        <nav class="toc">
+            <a href="#arithmetiques" class="toc-item active">Suites Arithmétiques</a>
+            <a href="#geometriques" class="toc-item">Suites Géométriques</a>
+            <a href="#comportement" class="toc-item">Comportement & Limites</a>
+            <a href="#documents" class="toc-item">Documents du cours</a>
+            <a href="#calculatrice" class="toc-item">Calculatrice NumWorks</a>
+        </nav>
+
+        <!-- SUITES ARITHMETIQUES -->
+        <section id="arithmetiques" class="section">
+            <div class="section-title">
+                <h2>Suites Arithmétiques</h2>
+                <div class="badge badge-primary">Addition (+ r)</div>
+            </div>
+
+            <div class="grid">
+                <div class="card glass">
+                    <h3>Définition</h3>
+                    <p>On passe d'un terme au suivant en <strong>ajoutant</strong> toujours le même nombre \( r \), appelé la <em>raison</em>.</p>
+                    <div class="formula">
+                        \[ u_{n+1} = u_n + r \]
+                    </div>
+                </div>
+
+                <div class="card glass">
+                    <h3>Terme Général</h3>
+                    <p>Calcul direct du terme de rang \( n \) :</p>
+                    <div class="formula-group">
+                        <div class="formula">
+                            \[ u_n = u_0 + n \times r \]
+                            <span class="formula-note">(Si le 1er terme est \( u_0 \))</span>
+                        </div>
+                        <div class="formula">
+                            \[ u_n = u_p + (n - p) \times r \]
+                            <span class="formula-note">(Formule générale depuis \( u_p \))</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card glass span-full">
+                    <h3>Somme des Termes (S<sub>n</sub>)</h3>
+                    <p>Pour calculer la somme de termes consécutifs d'une suite arithmétique :</p>
+                    <div class="formula sum-formula">
+                        \[ S = (\text{Nb de termes}) \times \frac{\text{1er terme} + \text{Dernier terme}}{2} \]
+                    </div>
+                    <p class="note">Rappel : Le nombre de termes de \( u_p \) à \( u_n \) est \( n - p + 1 \).</p>
+                </div>
+                
+                <div class="card glass span-full">
+                    <h3>Exemple Concret</h3>
+                    <p>Soit la suite arithmétique \( (u_n) \) de premier terme \( u_0 = 5 \) et de raison \( r = 3 \).</p>
+                    <div class="comparison-table">
+                        <div class="col">
+                            <ul>
+                                <li><strong>Premiers termes :</strong> 5, 8, 11, 14, 17...</li>
+                                <li><strong>Terme général :</strong> \( u_n = 5 + 3n \)</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul>
+                                <li><strong>Calcul de \( u_{10} \) :</strong> \( u_{10} = 5 + 3 \times 10 = 35 \)</li>
+                                <li><strong>Somme de \( u_0 \) à \( u_{10} \) :</strong><br><br>\( S = 11 \times \frac{5 + 35}{2} = 220 \)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SUITES GEOMETRIQUES -->
+        <section id="geometriques" class="section">
+            <div class="section-title">
+                <h2>Suites Géométriques</h2>
+                <div class="badge badge-secondary">Multiplication (× q)</div>
+            </div>
+
+            <div class="grid">
+                <div class="card glass">
+                    <h3>Définition</h3>
+                    <p>On passe d'un terme au suivant en <strong>multipliant</strong> toujours par le même nombre \( q \), appelé la <em>raison</em>.</p>
+                    <div class="formula">
+                        \[ u_{n+1} = u_n \times q \]
+                    </div>
+                </div>
+
+                <div class="card glass">
+                    <h3>Terme Général</h3>
+                    <p>Calcul direct du terme de rang \( n \) :</p>
+                    <div class="formula-group">
+                        <div class="formula">
+                            \[ u_n = u_0 \times q^n \]
+                            <span class="formula-note">(Si le 1er terme est \( u_0 \))</span>
+                        </div>
+                        <div class="formula">
+                            \[ u_n = u_p \times q^{n - p} \]
+                            <span class="formula-note">(Formule générale depuis \( u_p \))</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card glass span-full">
+                    <h3>Somme des Termes (S<sub>n</sub>)</h3>
+                    <p>Pour calculer la somme de termes consécutifs d'une suite géométrique (avec \( q \neq 1 \)) :</p>
+                    <div class="formula sum-formula">
+                        \[ S = (\text{1er terme}) \times \frac{1 - q^{\text{Nb de termes}}}{1 - q} \]
+                    </div>
+                </div>
+
+                <div class="card glass span-full">
+                    <h3>Exemple Concret</h3>
+                    <p>Soit la suite géométrique \( (u_n) \) de premier terme \( u_0 = 2 \) et de raison \( q = 3 \).</p>
+                    <div class="comparison-table">
+                        <div class="col">
+                            <ul>
+                                <li><strong>Premiers termes :</strong> 2, 6, 18, 54...</li>
+                                <li><strong>Terme général :</strong> \( u_n = 2 \times 3^n \)</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <ul>
+                                <li><strong>Calcul de \( u_4 \) :</strong> \( u_4 = 2 \times 3^4 = 162 \)</li>
+                                <li><strong>Somme de \( u_0 \) à \( u_4 \) :</strong><br><br>\( S = 2 \times \frac{1 - 3^5}{1 - 3} = 242 \)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPORTEMENT -->
+        <section id="comportement" class="section">
+            <div class="section-title">
+                <h2>Comportement & Limites</h2>
+                <div class="badge badge-accent">Analyse</div>
+            </div>
+
+            <div class="grid">
+                <div class="card glass">
+                    <h3>Variations (Croissance / Décroissance)</h3>
+                    <div class="comparison-table">
+                        <div class="col">
+                            <h4>Arithmétiques</h4>
+                            <ul>
+                                <li>\( r > 0 \) : Strictement croissante</li>
+                                <li>\( r < 0 \) : Strictement décroissante</li>
+                                <li>\( r = 0 \) : Constante</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h4>Géométriques (avec \( u_0 > 0 \))</h4>
+                            <ul>
+                                <li>\( q > 1 \) : Strictement croissante</li>
+                                <li>\( 0 < q < 1 \) : Strictement décroissante</li>
+                                <li>\( q < 0 \) : Non monotone (alternée)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card glass">
+                    <h3>Limites à l'infini</h3>
+                    <div class="comparison-table">
+                        <div class="col">
+                            <h4>Arithmétiques</h4>
+                            <ul>
+                                <li>\( r > 0 \) : Limite = \( +\infty \)</li>
+                                <li>\( r < 0 \) : Limite = \( -\infty \)</li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h4>Géométriques (\( q > 0 \))</h4>
+                            <ul>
+                                <li>\( q > 1 \) : Limite = \( +\infty \)</li>
+                                <li>\( 0 < q < 1 \) : Limite = \( 0 \)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOCUMENTS -->
+        <section id="documents" class="section">
+            <div class="section-title">
+                <h2>Documents & Ressources</h2>
+                <div class="badge badge-accent">PDFs</div>
+            </div>
+
+            <div class="grid">
+                <div class="card glass span-full">
+                    <h3>Cours et Exercices</h3>
+                    <ul class="documents-list" style="list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                        <li>
+                            <a href="assets/Mathematiques/Cours.pdf" target="_blank" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.3s; border: 1px solid rgba(255,255,255,0.1);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff4757; flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span>Cours.pdf</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/Mathematiques/Cours%202025_26.pdf" target="_blank" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.3s; border: 1px solid rgba(255,255,255,0.1);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff4757; flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span>Cours 2025-2026.pdf</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="assets/Mathematiques/Exos%20Suites.pdf" target="_blank" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.3s; border: 1px solid rgba(255,255,255,0.1);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff4757; flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span>Exercices Suites.pdf</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../Mathematiques/Corrig%C3%A9%20s%C3%A9ance%20exos%20suites%20mis%20%C3%A0%20jour%20le%209%20novembre.pdf" target="_blank" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.3s; border: 1px solid rgba(255,255,255,0.1);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff4757; flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span>Corrigé exos suites (9 nov).pdf</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../Mathematiques/approximation%20loi%20binomiale%20par%20une%20loi%20de%20Poisson.pdf" target="_blank" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.3s; border: 1px solid rgba(255,255,255,0.1);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #ff4757; flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span>Loi binomiale & Poisson.pdf</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- CALCULATRICE -->
+        <section id="calculatrice" class="section">
+            <div class="section-title">
+                <h2>Outils : Calculatrice NumWorks</h2>
+                <div class="badge badge-accent">Pratique</div>
+            </div>
+
+            <div class="grid">
+                <div class="card glass span-full" style="display: flex; flex-direction: column; align-items: center;">
+                    <h3>Simulateur NumWorks</h3>
+                    <p>Utilisez l'émulateur pour vérifier vos calculs de suites ou tracer leurs graphiques directement sur cette page.</p>
+                    <div style="width: 100%; max-width: 600px; height: 650px; margin: 2rem auto 0; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.5); border: 1px solid rgba(255, 255, 255, 0.1); background: #fff;">
+                        <iframe src="../Mathematiques/numworks-graphing-emulator-25.2.2.html" width="100%" height="100%" style="border: none;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="glass-footer">
+            <p>Conçu pour faciliter vos révisions.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
