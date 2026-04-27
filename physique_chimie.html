@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Physique-Chimie - BTS CIEL</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="blob blob-blue"></div>
+    <div class="blob blob-purple"></div>
+    <div class="blob blob-cyan"></div>
+
+    <header class="hero">
+        <div class="glass-panel">
+            <a href="index.html" class="tag" style="position: absolute; top: 1rem; left: 1rem; text-decoration: none; color: white; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px);">
+                &larr; Accueil
+            </a>
+            <h1>Physique-Chimie Appliquée</h1>
+            <p>Ressources et cours pour le BTS CIEL</p>
+            <div class="header-tags">
+                <span class="tag tag-accent">Électronique</span>
+                <span class="tag tag-level">Signaux</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- DOCUMENTS -->
+        <section id="documents" class="section">
+            <div class="section-title">
+                <h2>Documents & Cours</h2>
+                <div class="badge badge-primary">Fichiers</div>
+            </div>
+
+            <div class="grid">
+                <div class="card glass span-full">
+                    <h3>Traitement et Numérisation</h3>
+                    <ul class="documents-list" style="list-style: none; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                        <li>
+                            <a href="assets/Physique_Chimie/Num%C3%A9risation.pdf" target="_blank" style="display: flex; align-items: center; gap: 1rem; padding: 1rem; background: rgba(255,255,255,0.05); border-radius: 8px; text-decoration: none; color: inherit; transition: background 0.3s; border: 1px solid rgba(255,255,255,0.1);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: #8fd3f4; flex-shrink: 0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                                <span>Numérisation.pdf</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="glass-footer">
+            <p>Physique-Chimie - Adapté pour les étudiants en BTS CIEL.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
